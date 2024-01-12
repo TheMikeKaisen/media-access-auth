@@ -28,7 +28,7 @@ const userSchema = new Schema({
         type: String,       // cloudinary url
         required: true
     },
-    coverimage:{
+    coverImage:{
         type: String,       // cloudinary url
     },
     watchHistory: [
@@ -76,7 +76,7 @@ userSchema.methods.generateAccessToken = function(){
 
 // generating refresh token
 userSchema.methods.generateRefreshToken = function(){
-    jwt.sign({
+    return jwt.sign({
         _id: this._id, 
     }, process.env.REFRESH_TOKEN_SECRET, 
     {
